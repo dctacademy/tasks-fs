@@ -1,7 +1,10 @@
 const express = require('express')
 const fs = require('fs')
+const cors = require('cors')
 const app = express() 
 const port = 3033
+
+app.use(cors())
 app.use(express.json())
 
 app.get('/tasks', (req, res) => {
