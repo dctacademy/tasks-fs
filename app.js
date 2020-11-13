@@ -7,7 +7,7 @@ const port = 3033
 app.use(cors())
 app.use(express.json())
 
-app.get('/tasks', (req, res) => {
+app.get('/api/tasks', (req, res) => {
     fs.readFile('./data.json', 'utf-8', (err, data) => {
         if(err) {
             res.json(err) 
@@ -18,7 +18,7 @@ app.get('/tasks', (req, res) => {
     })
 })
 
-app.post('/tasks', (req, res) => {
+app.post('/api/tasks', (req, res) => {
     const body = req.body 
     fs.readFile('./data.json', 'utf-8', (err, data) => {
         if(err) {
@@ -33,7 +33,7 @@ app.post('/tasks', (req, res) => {
     })
 })
 
-app.get('/tasks/:id', (req, res) => {
+app.get('/api/tasks/:id', (req, res) => {
     const id = req.params.id 
     fs.readFile('./data.json', 'utf-8', (err, data) => {
         if(err) {
@@ -50,7 +50,7 @@ app.get('/tasks/:id', (req, res) => {
     })
 })
 
-app.put('/tasks/:id', (req, res) => {
+app.put('/api/tasks/:id', (req, res) => {
     const id = req.params.id 
     const body = req.body 
     fs.readFile('./data.json', 'utf-8', (err, data) => {
@@ -71,7 +71,7 @@ app.put('/tasks/:id', (req, res) => {
     })
 })
 
-app.delete('/tasks/:id', (req, res) => {
+app.delete('/api/tasks/:id', (req, res) => {
     const id = req.params.id 
     fs.readFile('./data.json', 'utf-8', (err, data) => {
         if(err) {
