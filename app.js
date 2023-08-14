@@ -20,6 +20,7 @@ app.get('/api/tasks', (req, res) => {
 
 app.post('/api/tasks', (req, res) => {
     const body = req.body 
+    body._id = Number(new Date()) 
     fs.readFile('./data.json', 'utf-8', (err, data) => {
         if(err) {
             res.json(err) 
